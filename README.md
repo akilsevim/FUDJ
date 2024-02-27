@@ -1,4 +1,5 @@
 
+
 # FUDJ: Flexible User-Defined Distributed Joins
 FUDJ is a framework for complex distributed join algorithms. The key idea of FUDJ is to allow developers to realize new distributed join algorithms into the database without delving into the database internals. 
 
@@ -6,9 +7,9 @@ In this repository, you will find the FUDJ interface and three optimized join al
 
 ## FUDJ Examples
 
- 1. Spatial Join (Based on: Patel, J. M., & DeWitt, D. J. (1996). Partition based spatial-merge join.  _ACM Sigmod Record_,  _25_(2), 259-270. Chicago)
- 3. Interval Join (Based on: Dignös, A., Böhlen, M. H., & Gamper, J. (2014, June). Overlap interval partition join. In _Proceedings of the 2014 ACM SIGMOD International Conference on Management of Data_ (pp. 1459-1470).)
- 4. Set-Similarity Join (Based on: Kim, T., Li, W., Behm, A., Cetindil, I., Vernica, R., Borkar, V., ... & Li, C. (2020). Similarity query support in big data management systems. _Information Systems_, _88_, 101455.)
+ 1. [Spatial Join](https://github.com/akilsevim/FUDJ/blob/main/SpatialJoin.java) (Based on: Patel, J. M., & DeWitt, D. J. (1996). Partition based spatial-merge join.  _ACM Sigmod Record_,  _25_(2), 259-270. Chicago)
+ 2. [Interval Join](https://github.com/akilsevim/FUDJ/blob/main/IntervalJoin.java) (Based on: Dignös, A., Böhlen, M. H., & Gamper, J. (2014, June). Overlap interval partition join. In _Proceedings of the 2014 ACM SIGMOD International Conference on Management of Data_ (pp. 1459-1470).)
+ 3. [Set-Similarity Join](https://github.com/akilsevim/FUDJ/blob/main/SetSimilarityJoin.java) (Based on: Kim, T., Li, W., Behm, A., Cetindil, I., Vernica, R., Borkar, V., ... & Li, C. (2020). Similarity query support in big data management systems. _Information Systems_, _88_, 101455.)
 
 ## FUDJ Interface
 To address the common challenges in partition-based distributed optimized join algorithms FUDJ programming model consists of three phases namely, **SUMMARIZE**, **PARTITION**, and **COMBINE**. 
