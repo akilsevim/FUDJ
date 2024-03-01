@@ -166,3 +166,66 @@ public class SetSimilarityJoin implements FlexibleJoin<String, SetSimilarityConf
     }
 
 }
+
+public class WordCount implements Summary<String> {
+
+    public Map<String, Integer> WordCountMap = new HashMap<>();
+
+    @Override
+    public void add(String k) {
+        String[] tokens = tokenizer(k);
+        for (String token : tokens) {
+            WordCountMap.merge(token, 1, Integer::sum);
+        }
+    }
+
+    @Override
+    public void add(Summary<String> s) {
+        WordCount wc = (WordCount) s;
+        for (String token : wc.WordCountMap.keySet()) {
+            WordCountMap.merge(token, wc.WordCountMap.get(token), Integer::sum);
+        }
+    }
+
+    public String[] tokenizer(String text) {
+        ArrayList<String> tokens = new ArrayList<>();
+        String lowerCaseText = text.toLowerCase();
+        int startIx = 0;
+
+        while (startIx < lowerCaseText.length()) {
+            while (startIx < lowerCaseText.length() && isSeparator(lowerCaseText.charAt(startIx))) {
+                startIx++;
+            }
+            int tokenStart = startIx;
+
+            while (startIx < lowerCaseText.length() && !isSeparator(lowerCaseText.charAt(startIx))) {
+                startIx++;
+            }
+            int tokenEnd = startIx;
+
+            String token = lowerCaseText.substring(tokenStart, tokenEnd);
+
+            if (!token.isEmpty())
+                tokens.add(token);
+
+        }
+        String[] arr = new String[tokens.size()];
+        arr = tokens.toArray(arr);
+        return arr;
+    }
+
+    private static boolean isSeparator(char c) {
+        return !(Character.isLetterOrDigit(c) || Character.getType(c) == Character.OTHER_LETTER
+                || Character.getType(c) == Character.OTHER_NUMBER);
+    }
+}
+
+public class SetSimilarityConfig implements Configuration {
+    HashMap<String, Integer> S = new HashMap<>();
+
+    SetSimilarityConfig(String[] OrderedTokens) {
+        for (int i = 0; i < OrderedTokens.length; i++) {
+            this.S.put(OrderedTokens[i], i);
+        }
+    }
+}
