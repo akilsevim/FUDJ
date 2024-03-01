@@ -11,7 +11,7 @@ In this repository, you will find the FUDJ interface and three optimized join al
  2. [Interval Join](https://github.com/akilsevim/FUDJ/blob/main/IntervalJoin.java) (Based on: Dignös, A., Böhlen, M. H., & Gamper, J. (2014, June). Overlap interval partition join. In _Proceedings of the 2014 ACM SIGMOD International Conference on Management of Data_ (pp. 1459-1470).)
  3. [Set-Similarity Join](https://github.com/akilsevim/FUDJ/blob/main/SetSimilarityJoin.java) (Based on: Kim, T., Li, W., Behm, A., Cetindil, I., Vernica, R., Borkar, V., ... & Li, C. (2020). Similarity query support in big data management systems. _Information Systems_, _88_, 101455.)
 
-## FUDJ Interface
+## [FUDJ Interface](https://github.com/akilsevim/FUDJ/blob/main/FlexibleJoin.java)
 To address the common challenges in partition-based distributed optimized join algorithms FUDJ programming model consists of three phases namely, **SUMMARIZE**, **PARTITION**, and **COMBINE**. 
 
 ![FUDJ Programming Model](https://www.cs.ucr.edu/~asevi006/fudj_pm.png)
